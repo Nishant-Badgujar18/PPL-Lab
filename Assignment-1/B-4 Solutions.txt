@@ -1,0 +1,8 @@
+Q.1 How many  times is the expression  (a + c) computed  in the original code (as seen in the SSA pass)? What about after the FRE pass?
+Answer: Twice, though the operands are in different orders. It is only computed once after the FRE pass.
+
+Q.2 Have  there been  any more  optimizations  after FRE? How will you check?
+Answer: We can check if there have been further optimisations by checking B-4.c.*.optimized, which is the final file after optimisation. It appears that redundant assignments have subsequently been eliminated
+
+Q.3 Why did  we have  to put a  "return b" in  this assignment?  What if "return b" is changed to "return 0"? Will it make any difference?
+Answer:  Not returning b would result in its elimination as dead code, for example in the case where `return b` is changed to `return 0`.

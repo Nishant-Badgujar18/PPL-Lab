@@ -1,0 +1,2 @@
+Q.1 What will happen if "a = a + N" is replaced by "a = a + 1"?
+Answer:The compiler will be able to evaluate the final value of a and turn the function into the equivalent of "return 14".

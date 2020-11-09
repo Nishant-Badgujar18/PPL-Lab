@@ -1,0 +1,22 @@
+Q.1 How  do the  declarations  look in  the  GIMPLE? Specifically,  what happens to multiple  variables declared and initialized  on the 
+    same line? 
+    What happens to global declaration [int Z]?
+
+Answer: One declaration per line. 
+        The global declaration `int Z` has disappeared and is not explicitly declared, but presumably it has a unique name meaning consistency in any access to it is preserved. For using Z, its value must be loaded to/stored from locals.
+
+Q.2 How are complex  expressions such as [c  = a * b +  25] broken down?
+    Can you  determine a  rule as  to when  temporary variables  will be introduced?
+
+Answer: One operation per line. 
+        Temporaries are introduced whenever an operation is used as an intermediate component of a computation.
+
+Q.3 How are  floats/doubles represented in  GIMPLE? 
+    What happens  when a float/double is assigned to an integer in [Z = r]?
+Answer: Floats and doubles are represented using scientific notation. 
+        An explicit cast is inserted when a float is assigned to an int.
+
+Q.4 How  are reads/writes  to the  global variable  Z performed?  
+    Why is there a temporary introduced  for the statement [Z = Z  + 1] but not for the statements [q = Z] or [Z = p]?
+Answer: Reads/writes to z performed through loads to/stores from locals. 
+        A temporary is required for Z = Z + 1 because the result of the computation Z + 1 cannot be written directly to a memory location.

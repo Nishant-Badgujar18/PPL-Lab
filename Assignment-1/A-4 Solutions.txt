@@ -1,0 +1,9 @@
+Q.1 How is array declaration and initialization handled?
+Answer: Arrays declared in a single statement with no initialisation and explicit size. Initialisation takes place one element per statement on scope entry.
+
+Q.2 Why does the statement a[i] = b[i] get broken down to two steps with an intermediate temporary?
+answer: Presumably because like in many architectures, only one memory operation per instruction is permitted. This probably simplifies many things.
+
+
+Q.3 Why are there CLOBBER statements at the end?
+Answer: To mark the arrays as invalid at scope exit - probably to simplify analysis and permit reuse of stack slots, etc.

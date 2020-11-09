@@ -1,0 +1,17 @@
+Q.1 Identify the basic blocks that correspond  to the while loop.
+    How is the GIMPLE for a while loop different from simple if-else jumps?
+Answer: BB 3 and 4 correspond to the while loop. 
+        BB2 avoids executing an iteration unconditionally by having an unconditional goto to BB4 which is the while loop conditional. 
+        This is different from the if-else jumps, which always seem to be conditional.
+
+Q.2 Identify the  basic blocks  for the nested  for-loop. 
+    You  should be able  to identify  intializers, conditions  and increments  for each loop as  well as  the shared  inner body.  
+    Is there  really anything special about a for-loop as compared to a while-loop?
+Answer: BB 5:  Outer loop induction variable initialisation
+        BB 10: Outer loop conditional check
+        BB 6:  Inner loop induction variable initialisation
+        BB 8:  Inner loop conditional check
+        BB 7:  Inner loop body + induction variable increment
+        BB 9:  Outer loop induction variable increment
+
+

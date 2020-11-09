@@ -1,0 +1,12 @@
+Q1. How have if-blocks  been translated into GIMPLE  statements? 
+    Can you differentiate between conditional and unconditional gotos?
+
+Answer: If-blocks are turned into conditional gotos to labels. Unconditional gotos
+        are a goto by themselves on a line. Conditional gotos always have two labels
+        for the taken and not-taken branches.
+
+Q2. Repeat  the  above compilation,  but  now  asking for  another  dump that  of  the pass  "cfg".  View  this  pass  and say  whether  this representation makes it easier to  read and understand GIMPLEs. 
+    Draw the control-flow graph  of the program A-2.c on a  piece of paper by looking at the CFG dump.
+
+Answer: It's a bit easier to see the control flow in this representation, but
+        slightly less concise in terms of number of lines.

@@ -1,0 +1,2 @@
+Q.1 In the file B-3.c, what values  can variable `a' take? Will the `if' condition [a  < 4] ever  be true?  Inspect the file  B-3.c.*.vrp1 to analyze the dump.
+Answer: a takes on the values 4 to 100, but only 4 to 99 within the scope of the loop body. The if condition will never be true, and the code in the taken branch appears to have been eliminated.
